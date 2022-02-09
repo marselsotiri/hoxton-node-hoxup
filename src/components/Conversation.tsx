@@ -7,7 +7,7 @@ type Props = {
   currentUser: User | null
 }
 
-function Conversation({ currentUser }: Props): any {
+function Conversation({ currentUser }: Props) {
   const [currentConversation, setCurrentConversation] = useState<ConversationT | null>(null)
 
   const params = useParams()
@@ -48,8 +48,7 @@ function Conversation({ currentUser }: Props): any {
     }
   }, [params.conversationId])
 
-  if (currentConversation === null) return <h1>Loading...</h1>
-  if (currentUser === null) return
+  if (currentConversation === null || currentUser === null) return <h1>Loading...</h1>
 
   return (
     <main className='conversation'>
